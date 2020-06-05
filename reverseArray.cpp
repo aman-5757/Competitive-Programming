@@ -1,38 +1,38 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void fill(vector<int> & arr){
+void reverse(vector<int> & arr){
+    int i = 0; 
+    int j = arr.size()-1;
+    while(i<=j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+        i++; j--;
+    }
+}
+
+void fillArray(vector<int> & arr){
     for(int i = 0; i<arr.size(); i++){
         cin>>arr[i];
     }
 }
-void swap(vector<int> & arr, int i, int j){
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-void reverse(vector<int> & arr){
-    int i = 0;
-    int j = arr.size()-1;
-   while(i<=j){
-       swap(arr, i,j);
-       i++;
-       j--;
-   }
+
+void display(vector<int> & arr){
+    for(int i = 0; i<arr.size(); i++){
+        cout<<arr[i]<<" ";
+    }
 }
 
 int main(){
-    int n;      cin>>n;
+    int n;
+    cin>>n;
+
     vector<int> arr(n,0);
-    fill(arr);
+    fillArray(arr);
     reverse(arr);
-    for(int i = 0; i<n; i++){
-        cout<<arr[i]<<" ";
-    }
+    display(arr);
 
-
-
-
-
+    
     return 0;
 }
